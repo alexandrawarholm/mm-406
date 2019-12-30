@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!--
+    Utility for displaying a nice header summary on top of assignments.
+    Add attributes to url.
+
+    Possible attributes:
+    * time
+    * group
+    * tools
+    * limits
+
+    Example usage:
+    https://........../assignmentHeader.html?time=~30 minutter&group=1 Person&tools=Watch/timer&limits=Max 300 words, Min 200 words
+
+    Author: Christian Simonsen (Christian.Simonsen@uia.no)
+    Licenses: https://creativecommons.org/licenses/by/4.0/
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assignment header</header>
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 12px;
+            line-height: 1;
+        }
+
+        #infoBar {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: #eff0f0;
+            height: 60px;
+        }
+
+        .desc{
+            display: inline-block;
+            margin: 10px 0px 10px auto;
+        }
+        
+        .desc > label{
+            margin: 0px;
+            float: none;
+            display: block;
+            font-weight: bolder;
+        }
+
+        .icon {
+            height: 40px;
+            display: inline-block;
+            margin: 3px 10px 0 0;
+            vertical-align: top;
+        }
+
+        .icon > img {
+            max-height: 100%;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <template id="attributeTemplate">
+        <div>
+            <div class="icon">
+                <img src="#"  />
+            </div>
+            <div class="desc">
+                <label>Label:</label><span>description</span>
+            </div>
+        </div>
+    </template>
+
+    <div id="infoBar">
+
+    </div>
+
+<script>
+
+    const SECTIONS = {
+        time:{ 
+            label:"Time",
+            icon:"https://uia.instructure.com/courses/5807/files/939128/preview"
+        },
+        group:{
+            label:"Group size",
+            icon:"https://uia.instructure.com/courses/5807/files/939129/preview"
+        },
+        tools:{
+            label:"Tools",
+            icon:"https://uia.instructure.com/courses/5807/files/939130/preview"
+        },
+        limits:{
+            label:"Limits",
+            icon:"https://uia.instructure.com/courses/5807/files/939133/preview"
+        }
+
+
+    }
+    var params = new URLSearchParams(window.location.search);
+
+    var entries = params.entries();
+    for(pair of entries) { 
+        if(SECTIONS.hasOwnProperty(pair[0])){
+            var attr = SECTIONS[pair[0]];
+            var template = document.querySelector('#attributeTemplate')
+            var target = document.querySelector("#infoBar")
+            var clone = document.importNode(template.content, true);
+
+            clone.querySelector(".desc > label").textContent = attr.label;
+            clone.querySelector(".desc > span").textContent = pair[1];
+            clone.querySelector(".icon > img").setAttribute("src", attr.icon);
+
+            target.appendChild(clone);
+        }
+    }
+
+
+
+</script>
+
+</body>
+
+</html>
