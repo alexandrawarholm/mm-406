@@ -5,253 +5,357 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MM-406 E-learning and Games</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.3/motion-ui.min.css">
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-prototype.min.css">
-  <link href='https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet'
-    type='text/css'>
-
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
   <style>
-    .history {
-      background: url("img/history.jpg") no-repeat center center;
+    body {
+      font-family: 'Open Sans', sans-serif;
     }
 
-    .intro {
-      background: url("img/hello.jpg") no-repeat center center;
-    }
 
-    .featured-article-big {
-      background-size: cover;
-      height: 28.125rem;
-      width: 100%;
-      display: -webkit-flex;
-      display: -ms-flexbox;
+    .column {
       display: flex;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
       flex-direction: column;
-      -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
-      padding: 0.625rem;
-      border-right: 0.0625rem solid #fefefe;
+      justify-content: start;
     }
 
-    .featured-article-big .featured-article-text .featured-article-title {
-      font-size: 1.75rem;
-      font-weight: bold;
-      line-height: 1.875rem;
-    }
-
-    .featured-article-big .featured-article-text .featured-article-title .author {
-      font-size: 1.125rem;
-    }
-
-    .featured-article-big .featured-article-text p {
-      color: #fefefe;
-      margin-bottom: 0;
-    }
-
-    .featured-article-small-container {
-      display: -webkit-flex;
-      display: -ms-flexbox;
+    .row {
       display: flex;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
-      height: 28.125rem;
+      flex-direction: row;
+      justify-content: start;
     }
 
-    .featured-article-small-container :last-child .featured-article-small {
-      border-bottom: 0;
+    .header{
+      width: 260px;
+      min-width: 260px;
+      max-width: 260px;
     }
 
-    .featured-article-small {
-      background: url("https://placehold.it/200?text=Small+Feature") no-repeat center center;
-      height: 9.375rem;
-      display: -webkit-flex;
-      display: -ms-flexbox;
+    .content{
+      padding-right: 20px;
+    }
+
+    .scheduleItem {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding-bottom: 20px;
       display: flex;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
-      padding: 0.625rem;
-      border-bottom: 0.0625rem solid #fefefe;
+      align-content: flex-start;
     }
 
-    .featured-article-small :last-child {
-      border-bottom: 0;
+    .week,
+    .date {
+      font-size: 0.8em;
+      margin: 0px 5px 0px 5px;
     }
 
-    .featured-article-small .featured-article-text .featured-article-title {
-      font-size: 1rem;
-      font-weight: bold;
-      line-height: 0.9375rem;
-      max-height: 2.8125rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    .icon {
+      display: flex;
+      justify-content: center;
+      width: 175px;
+      min-width: 175px;
+      max-width: 175px;
+      max-height: 128px;
     }
 
-    .featured-article-small .featured-article-text p {
-      color: #fefefe;
-      margin-bottom: 0;
+    #schedule {}
+
+    .Social{
+      background-color: #FFF2B0;
     }
 
-    .featured-article-links-container {
-      border: 0.0625rem solid #e6e6e6;
-      background-color: #fefefe;
-      height: 28.125rem;
-      overflow: scroll;
+    .Lecture{
+      background-color:#9DC0C5;
     }
 
-    .featured-article-links,
-    .featured-article-links-header {
-      padding: 0.625rem;
-      border-bottom: 0.0625rem solid #e6e6e6;
+    .Deadline{
+      background-color:#C59D9D;
     }
 
-    .featured-article-links:last-child,
-    .featured-article-links-header:last-child {
-      border-bottom: 0;
+    .Workshop{
+      background-color: #BA9DC5;
     }
 
-    .featured-article-links-header {
-      font-weight: 600;
-      text-transform: uppercase;
+    .pre,.post{
+      margin-top: 10px;
     }
+
+    .prepostImage{
+      width: 28px;
+      height: 28px;
+      float: none;
+    }
+    
+
+    @media screen and (max-width: 600px) {
+     .header{
+       display: none;
+     } 
+
+     .content{
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+
+    }
+
   </style>
-
 </head>
 
 <body>
+  <section id="schedule" class="column">
 
+  </section>
 
-
-  <div class="featured-article-side-links">
-    <div class="row collapse">
-      <!-- big feature -->
-      <div class="small-12 medium-6 columns">
-        <div class="featured-article-big intro">
-          <div class="featured-article-tag">
-            <span class="label">Lecture</span>
-          </div>
-          <div class="featured-article-text">
-            <p class="featured-article-title">Introduction lecture</p>
-            <p><small>07.01.2020 | Photo by Vladislav Klapin on Unsplash</small></p>
-            <p>Greetings and salutations. This lecture is so we can get a common understanding of what this course is
-              all
-              about, We will discuss the curriculum, reading, assignments, game jam, examination and answer any
-              questions
-              you might have.</p>
-            <p>
-              Recomended reading:
-              <ul>
-                <li><a href="http://art.yale.edu/file_columns/0000/1474/homo_ludens_johan_huizinga_routledge_1949_.pdf"
-                    target="_blank">Homo Ludens</a></li>
-                <li><a href="https://www.popmatters.com/127853-johan-huizingas-homo-ludens-2496171201.html"
-                    target="_blank">Article about Homo Ludens</a></li>
-                <li><a href="http://gamestudies.org/0601/articles/rodriges" target="_blank">The Playful and the Serious:
-                    An approximation to Huizinga's Homo Ludens</a></li>
-                <li></li>
-              </ul>
-            </p>
-          </div>
-
+  <template id="scheduleItemTemplate">
+    <div class="scheduleItem">
+      <div class="header row">
+        <div class="column">
+          <div class="week"></div>
+          <div class="date"></div>
+        </div>
+        <div class="icon">
+          <img src="img/liftoff.png">
         </div>
       </div>
-
-
-    </div>
-  </div>
-
-
-
-
-  <!--
-  <article class="grid-container">
-    <div class="grid-x align-center">
-      <div class="cell medium-8">
-        <div class="blog-post">
-          <h3>Introduction lecture <small>07.01.2020</small></h3>
-          <img class="thumbnail" src="img/hello.jpg">
-          Photo by Vladislav Klapin on Unsplash
-          <p>Greetings and salutations. This lecture is so we can get a common understanding of what this course is all
-            about, We will discuss the curriculum, reading, assignments, game jam, examination and answer any questions
-            you might have.</p>
-          <div class="callout">
-            <h4>After:</h4><br/>
-            Recomended reading:
-            <ul>
-            <li><a href="http://art.yale.edu/file_columns/0000/1474/homo_ludens_johan_huizinga_routledge_1949_.pdf" target="_blank">Homo Ludens</a></li>
-            <li><a href="https://www.popmatters.com/127853-johan-huizingas-homo-ludens-2496171201.html" target="_blank">Article about Homo Ludens</a></li>
-            <li><a href="http://gamestudies.org/0601/articles/rodriges" target="_blank">The Playful and the Serious: An approximation to Huizinga's Homo Ludens</a></li>
-            <li></li>
-          </ul>
-          </div>
+      <div class="column content">
+        <h1 class="title"></h1>
+        <div class="description"></div>
+        <div class="pre">
         </div>
-      </div>
-      <div class="grid-x align-center">
-        <div class="cell medium-8">
-          <div class="blog-post">
-            <h3>Play, Games and Humans <small>14.01.2020</small></h3>
-            <img class="thumbnail" src="img/history.jpg">
-            Photo by Giammarco Boscaro on Unsplash
-            <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim
-              congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci.
-              Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla
-              at nulla justo, eget luctus.</p>
-          
-          </div>
+        <div class="post">
+        </div>
 
-        </div>
       </div>
-      <div class="grid-x align-center">
-        <div class="cell medium-8">
-          <div class="blog-post">
-            <h3>Diversify experience game lab I <small>???</small></h3>
-            <img class="thumbnail" src="img/experiance.jpg">
-            Photo by Ashim D’Silva on Unsplash
-            <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim
-              congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci.
-              Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla
-              at nulla justo, eget luctus.</p>
-            
-          </div>
-        </div>
-      </div>
-      <div class="grid-x align-center">
-        <div class="cell medium-8">
-          <div class="blog-post">
-            <h3>Awesome blog post title <small>3/6/2016</small></h3>
-            <img class="thumbnail" src="https://placehold.it/850x350">
-            <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim
-              congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci.
-              Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla
-              at nulla justo, eget luctus.</p>
-            <div class="callout">
-              <ul class="menu simple">
-                <li><a href="#">Author: Mike Mikers</a></li>
-                <li><a href="#">Comments: 3</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-  </article>
-  -->
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.3/motion-ui.min.js"></script>
+      </section>
+  </template>
+
   <script>
-    $(document).foundation();
+    const schedule = [
+    {
+        "week": 2,
+        "date": "07.01.2020",
+        "day": "Tirsdag",
+        "title": "Intro",
+        "questionsDescription": "In this session we will discuss what we hope to achieve this semester, what we will be doing and how, what you can expect from MM-406. We will get an overview of the workload and the more exotic events on our calendar. We will also be discussing the significance of the course and how it ties into society and your education.\n",
+        "type": "Lecture",
+        "post": "Assignment: https://uia.instructure.com/courses/5807/assignments/18487 ",
+        "icon": "liftoff.png"
+    },
+    {
+        "week": 3,
+        "date": "14.01.2020",
+        "day": "Tirsdag",
+        "title": "Play, Games and Humans",
+        "questionsDescription": "What is play, how does it distinguish itself from games? What significance does play and games have for humans?  What do we know about the history of play and games? Has the meaning of play changed? These are some of the type of questions we will attempt to find answers to in this session. \n",
+        "type": "Lecture",
+        "pre": "Read https://uia.instructure.com/files/940716/download?wrap=1",
+        "post": "<p>Watch<br/>\nhttps://youtu.be/WZskjLq040I <br/>\nhttps://youtu.be/wHjznvH54Cw <br/>\n</p><p>\nAssignment: <br/>https://uia.instructure.com/courses/5807/assignments/18489 <br/> https://uia.instructure.com/courses/5807/assignments/18492</p>",
+        "icon": "history.png"
+    },
+    {
+        "week": 3,
+        "date": "15.01.2020",
+        "day": "Onsdag",
+        "title": "Diversify experience game lab I",
+        "questionsDescription": "We play and talk about a series of different games. \n",
+        "type": "Social",
+        "icon": "play.png"
+    },
+    {
+        "week": 4,
+        "date": "21.01.2020",
+        "day": "Tirsdag",
+        "title": "Game design intro",
+        "questionsDescription": "What makes a game? What is the focus of game design? What is theme? Where dos one begin? Are there tools and processes that I can use? We will be digging into these and similar questions.\n",
+        "type": "Lecture",
+        "pre": "Read: Unit 1 in Rules of Play",
+        "post": "Assignment: https://uia.instructure.com/courses/5807/assignments/18493",
+        "icon": "dice.png"
+    },
+    {
+        "week": 5,
+        "date": "28.01.2020",
+        "day": "Tirsdag",
+        "title": "Game desing continued",
+        "questionsDescription": "What are mechanics, components and rules? Are there different types of rules? Who do we discover and use mechanics? Are there tools? This is the next step in our process of discussing game design, we will now be adding some meat to our games. \n\n",
+        "type": "Lecture",
+        "pre": "Read: Unit 2 i Rules of Play",
+        "post": "http://www.boardgamedesignlab.com/designing-an-awesome-print-n-play-with-martin-gonzalvez/ Assignment: https://uia.instructure.com/courses/5807/assignments/18494",
+        "icon": "dice.png"
+    },
+    {
+        "week": 6,
+        "date": "04.02.2020",
+        "day": "Tirsdag",
+        "title": "Game testing",
+        "questionsDescription": "How do we test a game? What are the tools? What are we looking for? There is a lot of forethought that goes into successful testing of a game. During this workshop we will try to familiarize you with a good process and tools. \n\n",
+        "type": "Workshop",
+        "pre": "Students must have created a prototype ",
+        "post": "Assignment: https://uia.instructure.com/courses/5807/assignments/18578",
+        "icon": "test.png"
+    },
+    {
+        "week": 7,
+        "date": "11.02.2020",
+        "day": "Tirsdag",
+        "title": "Serious & Educational Games\n",
+        "questionsDescription": "Games vs Serious vs educational, what are the differences? Does it madder beyond a rhetoric / marketing view? When the focus is not entertainment does the process differ? Are serious games and simulators the same thing? There are lots of questions we could ask ourselves on this topic, together we will figure out what this is all about. \n\n",
+        "type": "Lecture",
+        "icon": "serious.png"
+    },
+    {
+        "week": 8,
+        "date": "18.02.2020",
+        "day": "Tirsdag",
+        "title": "?",
+        "questionsDescription": "nothing planed\n",
+        "icon": "unknown.png"
+    },
+    {
+        "week": 9,
+        "date": "25.02.2020",
+        "day": "Tirsdag",
+        "title": "Motivation",
+        "questionsDescription": "Hvorfor bryr vi oss om motivasjon? Finnes det ulike typer motivasjon? Kan vi skape motivasjon? Er det ting vi kan lære fra spill og andre medier om motivasjon? Er vi motivert av forskjellige ting? Har man ulike motivasjoner for å spille? Hvorfor regnes gamification/spillifisering som motivasjonsteori? Er det enkelte faktorer som trigger motivasjon, og noen som skaper demotivasjon?",
+        "type": "Lecture",
+        "pre": "Lese Daniel Pink \"Drive\" og se hans TED foredrag: https://www.youtube.com/watch?v=rrkrvAUbU9Y ",
+        "icon": "motivation.png"
+    },
+    {
+        "week": 10,
+        "date": "03.03.2020",
+        "day": "Tirsdag",
+        "title": "Pedagogy",
+        "questionsDescription": "Hva kan moderne pedagogikk tilby spill design?  Hvilke likhetstrekk finner vi i teorier / tanker relatert til spill design, motivasjon og pedagogikk? Hva er læringsteori og hvordan kan kjennskap til dette bidra til å forstå hvorfor spill og spillifisering er kraftige verktøy for undervisning? Læring er i kontiuerlig utvikling, kan vi lage en oversikt over de viktigste elementene i denne utviklingen og derfra si noe om spillets sterke rolle?",
+        "type": "Lecture",
+        "pre": "Utdypende om grunnleggende pedagogikk: https://courses.lumenlearning.com/educationalpsychology/ Dere bør også se på følgende rapport fra side 38 og utover: https://www.forskningsradet.no/siteassets/publikasjoner/1254035532334.pdf",
+        "icon": "ped.png"
+    },
+    {
+        "week": 10,
+        "date": "04.03.2020",
+        "day": "Onsdag",
+        "title": "Diversify experience game lab II",
+        "questionsDescription": "We play a series of diffrent styles of digital games",
+        "type": "Social",
+        "icon": "play.png"
+    },
+    {
+        "week": 11,
+        "date": "10.03.2020",
+        "day": "Tirsdag",
+        "title": "Digital Games",
+        "questionsDescription": "Hva skiller digitale og analoge spill? Er digitale bedre enn analoge? Er det forskjeller i design prosessen mellom digitale og analoge spill? Hva finnes av verktøy? Hvordan starter man med et digitalt spill design?",
+        "type": "Lecture",
+        "icon": "digital.png"
+    },
+    {
+        "week": 12,
+        "date": "17.03.2020",
+        "day": "Hele uken",
+        "title": "Game Jam",
+        "questionsDescription": "Vi lager et digitalt spill fra A til Å.",
+        "type": "Workshop",
+        "pre": "Students must have set of time ",
+        "icon": "jam.png"
+    },
+    {
+        "week": 13,
+        "date": "24.03.2020",
+        "day": "Tirsdag",
+        "title": "STM Prep",
+        "questionsDescription": "Hvordan formidle spillutvikling til andre? Hvorfor er det viktig å beherske både teori og praksis?",
+        "type": "Lecture",
+        "icon": "collaborate.png"
+    },
+    {
+        "week": 16,
+        "date": "14.04.2020",
+        "day": "Hele uken",
+        "title": "STM Project",
+        "questionsDescription": "Vi jobber med barnehagelærer-studenter for å lage spill",
+        "type": "Practical",
+        "icon": "collaborate.png"
+    },
+    {
+        "week": 17,
+        "date": "21.04.2020",
+        "day": "Hele uken",
+        "title": "STM Project",
+        "questionsDescription": "Vi jobber med barnehagelærer-studenter for å lage spill",
+        "type": "Practical",
+        "icon": "collaborate.png"
+    },
+    {
+        "week": 18,
+        "date": "28.04.2020",
+        "day": "Tirsdag",
+        "title": "Semester Reflection, Introspection. Writing seminar\n",
+        "questionsDescription": "Hva har vi lært? Har det vært noen overraskelser? Hva har vært høydepunktene? Hva har vært bunnpunktene? Har semesteret gitt deg noe personlig? Hva er god skriving? Hva er en artikkel? Hva er generelle ting man ikke bør gjøre? Hvilke verktøy har man for å skrive bra? Hva er egentlig akademisk litteratur?",
+        "type": "Lecture",
+        "icon": "end.png"
+    },
+    {
+        "week": 19,
+        "date": "04.05.2020",
+        "day": "Mandag",
+        "title": "Final deadline for obligatory assignments\n",
+        "questionsDescription": "Folk som leverer inn oblig oppgaver på dette tidspunkt får ikke tilbakemeldinger",
+        "type": "Deadline",
+        "icon": "deadline.png"
+    },
+    {
+        "week": 21,
+        "date": "18.05.2020",
+        "day": "Mandag",
+        "title": "Deadline for article",
+        "questionsDescription": "En artikkel hvor du summerer opp spillene du har laget og hvordan de er knyttet til læringsteori. Styrker og svakheter med din implimentasjon etc. Artikkelen skal settes opp korrekt med innledning, teori og refleksjon.",
+        "type": "Deadline",
+        "pre": "Her vil der foreligge en PPT med krav og minimumskrav til artikkel.",
+        "icon": "deadline.png"
+    },
+    {
+        "week": 22,
+        "date": "[25.05.2020, 27.05.2020] ",
+        "title": "Oral exam\n",
+        "questionsDescription": "En liten prat om artikkelen din og det du har skrevet der.",
+        "type": "Deadline",
+        "icon": "oral.png"
+    }
+]
+
+    var target = document.querySelector("#schedule");
+
+    schedule.forEach((item, index) => {
+
+      var template = document.querySelector('#scheduleItemTemplate')
+
+      var clone = document.importNode(template.content, true);
+
+      clone.querySelector(".week").textContent = `Week ${item.week}`;
+      clone.querySelector(".date").textContent = item.date
+      clone.querySelector(".title").textContent = item.title;
+      clone.querySelector(".description").textContent = item.questionsDescription;
+      clone.querySelector(".scheduleItem").classList.add(item.type)
+      clone.querySelector(".icon > img").setAttribute("src", `img/${item.icon}`)
+
+      if(item.pre){
+        clone.querySelector(".pre").innerHTML = `<img src="img/before.png" class="prepostImage" ><br/> ${item.pre}` 
+      }
+
+      if(item.post){
+        clone.querySelector(".post").innerHTML = `<img src="img/after.png" class="prepostImage" > <br/>${item.post}` 
+      }
+
+      target.appendChild(clone);
+
+
+    })
+
   </script>
+
+
 </body>
 
 </html>
