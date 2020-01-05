@@ -357,7 +357,7 @@
       clone.querySelector(".week").textContent = `Week ${item.week}`;
       clone.querySelector(".date").textContent = item.date
       if(item.page){
-        clone.querySelector(".title").innerHTML = `<a href="${item.page} target="_PARENT">${item.title}</a>`;
+        clone.querySelector(".title").innerHTML = `<a href="${item.page}" target="_PARENT">${item.title}</a>`;
       } else {
         clone.querySelector(".title").textContent = item.title;
       }
