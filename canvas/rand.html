@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Randomiser</title>
+</head>
+
+<body>
+
+    <div>
+        <input type="text" id="seed">
+        <input type="text" id="delta">
+        <button id="generateThemeBt">Genereate</button>
+    </div>
+
+
+    <script>
+
+        let bt = document.querySelector("#generateThemeBt");
+        bt.onClick = function(evt){
+
+            let seed = document.querySelector("#seed").value.length;
+            let delta = document.querySelector("#delta").value.length;
+
+            console.log(sequence(seed,delta,themes).slice(0,3))
+        }
+
+        let mechanics = null;
+        let themes = null;
+
+        (async () => {
+            mechanics = await Retrieve("mechanics.json");
+            themes = await Retrieve("themes.json");
+ 
+
+            console.log(sequence(25,6,mechanics).slice(0,3));
+
+        })();
+
+
+
+        async function Retrieve(target) {
+            let resp = await fetch(target)
+            let json = await resp.json()
+            return json;
+        }
+
+        function sequence(seed, delta, array) {
+
+            if (array.length == 0) { return []; }
+
+            seed = seed + delta;
+            if (seed > array.length) {
+                seed = seed % array.length;
+            }
+
+            let value = array.slice(seed, seed + 1);
+            array.splice(seed, 1);
+
+            return value.concat(sequence(seed, delta, array))
+        }
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
