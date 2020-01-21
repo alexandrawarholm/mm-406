@@ -7,6 +7,11 @@
   <title>MM-406 E-learning and Games</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.30.1/date_fns.min.js"></script>
+
+
+
   <style>
     body {
       font-family: 'Open Sans', sans-serif;
@@ -144,13 +149,32 @@
   </template>
 
   <script>
+    dateFns.isToday(new Date())
+    //=> true
+  </script>
+
+  <script>
     var schedule = null;
     var target = document.querySelector("#schedule");
-
+    var todayWeek  = dateFns.getISOWeek(Date());
+    var currentItem = null;
 
     (async () => {
       schedule = await Retrieve(`schedule.json?killCache=${Math.random()* Number.MAX_SAFE_INTEGER}`);
       schedule.forEach((item, index) => {
+
+        if(!currentItem){
+          currentItem = item;
+        } else{
+          let date = dateFns.parse(item.date)
+          let week = dateFns.getISOWeek(date);
+
+          console.log(`todays week ${todayWeek}, items ${date} week ${week} `)
+
+          if(week == todayWeek){
+            currentItem = item;
+          }
+        }
 
         var template = document.querySelector('#scheduleItemTemplate')
 
@@ -181,9 +205,9 @@
         }
 
         target.appendChild(clone);
+      });
 
-
-      })
+      console.log(currentItem)
 
     })();
 

@@ -5,43 +5,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Randomiser</title>
+    <title>The fun generator</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
-<body>
+<body class="white accent-2">
 
-    <div>
-        <input type="text" id="seed">
-        <input type="text" id="delta">
-        <button id="generateThemeBt">Genereate</button>
+    <div class="container">
+
+        
+        <div class="col s12 m6">
+            <h1>The fun generator</h1>
+            <label for="seed">First random word</label><input type="text" id="seed">
+            <label for="seed">Second random word</label><input type="text" id="delta">
+            <label for="seed">Difficulty</label><input id="size" type="range" min="1" max="3">
+            <button id="generate">Action</button>
+
+        </div>
+    
+        <div id="output" class="col s12 m6">
+
+        </div>
+
     </div>
 
 
     <script>
 
-        let bt = document.querySelector("#generateThemeBt");
-        bt.onClick = function(evt){
-
-            let seed = document.querySelector("#seed").value.length;
-            let delta = document.querySelector("#delta").value.length;
-
-            console.log(sequence(seed,delta,themes).slice(0,3))
-        }
-
         let mechanics = null;
         let themes = null;
+        let constraints = null;
+
+        let emojis = ["😂", "😉", "😂", "🤩", "🤪"];
+        let emojisForUse = null;
+
+        let bt = document.querySelector("#generate");
+        bt.addEventListener("click", (evt) => {
+
+            let seed = sumString(document.querySelector("#seed").value);
+            let delta = sumString(document.querySelector("#delta").value);
+            let slice = document.querySelector("#size").value
+            let mutator = 0;
+
+            let collection = constraints.slice(0);
+            let res = sequence(seed + mutator, delta, collection.slice(0)).slice(0,slice);
+
+            let output = "<h4>Your game should</h4><p>"
+            res.forEach(item => {
+                output += `${rndEmoji()} ${item} <br/>`
+            })
+            output += "</p>"
+
+            document.querySelector("#output").innerHTML = output
+        });
+
+       
 
         (async () => {
-            mechanics = await Retrieve("mechanics.json");
-            themes = await Retrieve("themes.json");
+            constraints = await Retrieve(`constraints.json?rnd=${Date.now()}`);
+            //mechanics = await Retrieve(`mechanics.json?rnd=${Date.now()}`);
+            //themes = await Retrieve(`themes.json?rnd=${Date.now()}`);
         })();
 
 
+        function rndEmoji(){
+            if(!emojisForUse || emojisForUse.length === 0){
+                emojisForUse = emojis.slice(0);
+                emojisForUse = shuffle(emojisForUse);
+            }
+            return emojisForUse.pop();
+        }
 
         async function Retrieve(target) {
             let resp = await fetch(target)
             let json = await resp.json()
             return json;
+        }
+
+        function sumString(str) {
+            let sum = 0;
+
+            str.split("").forEach(char => {
+                sum += char.charCodeAt(0)
+            });
+
+            return sum;
+        }
+
+        function shuffle(a) {
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
         }
 
         function sequence(seed, delta, array) {
