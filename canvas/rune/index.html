@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runes Awsome Adventure</title>
+    <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background: rgb(2, 0, 36);
+            background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(121, 9, 9, 1) 72%, rgba(255, 0, 0, 1) 100%);
+            font-family: 'Anton', sans-serif;
+            color: white;
+
+        }
+
+        .stage {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .scene {
+            font-size: 2em;
+            align-self: center;
+            text-align: center;
+
+        }
+
+        .hidden {
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="stage">
+      
+        <div class="scene" id="intro">
+            <img src="img/logo.gif" alt="Runes Amasing adventure" />
+            <p>This is a game about Rune’s adventure,<br />not to be confused with any other Rune this
+                is the Rune (yes, that one). </p>
+            <button data-target="scene1">START</button>
+        </div>
+
+        <div class="scene, hidden" id="scene1">
+            <p>Overworked and tired, Rune decided to take a run through the forest needing some fresh air due to the
+                coronavirus he definitely doesn’t have.<br />Suddenly, he realized he’s completely lost and starts
+                searching for his way out.</p>
+            <img src="img/t.png" alt="some trees">
+            <img src="img/rune2.png" alt="Rune" class="tint">
+            <img src="img/t.png" alt="some trees">
+            <button data-target="scene2">Continue</button>
+        </div>
+      
+        <div class="scene, hidden" id="scene2">
+            <p>Rune comes into a meadow where he finds some mushrooms,</p>
+            <div><img src="img/t.png" alt="some trees">
+            <img src="img/rune2.png" alt="Rune" class="tint">
+            <img src="img/t.png" alt="some trees"></div>
+            <img src="img/m2.png" alt="musroom">
+            <img src="img/m3.png" alt="musroom">
+            <img src="img/m4.png" alt="musroom">
+            <div>
+                <div>
+                    <p>Confused and hungry he decides to eat those mushrooms. </p>
+                    <button data-target="eat">Eat mushrooms</button>
+                </div>
+                <div>
+                    <p>Why would I eat that? Pfft, he takes a step forward... </p>
+                    <button data-target="doNotEat">Do not eat the mushrooms..</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="scene, hidden" id="doNotEat">
+            <h2>he takes a step forward and faceplants. Ingesting copious amounts of shrooms as he dos so. </h2>
+            <div><img src="img/t.png" alt="some trees">
+            <img src="img/rune1.png" alt="Rune" class="tint">
+            <img src="img/t.png" alt="some trees"></div>
+            <img src="img/m2.png" alt="musroom">
+            <img src="img/m3.png" alt="musroom">
+            <img src="img/m4.png" alt="musroom">
+            <div>
+                <div>
+                    <button data-target="eat">Continue..</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="scene, hidden" id="eat">
+            <img src="img/hypno.gif" alt="Stuff is geting trippy"><br/>
+            <button data-target="unicorn">Continue??!!</button>
+        </div>
+
+
+        <div class="scene, hidden" id="unicorn">
+            Suddenly Rune realized- there’s a beautiful unicorn ahead! 
+            <div><img src="img/t.png" alt="some trees">
+                <img src="img/t.png" alt="some trees"><br/>
+                <img src="img/rune1.png" alt="Rune" class="tint">
+                <img src="img/h1.png" alt="def not a unicorn">
+            </div>
+            <div>
+                <button data-target="horn">Rune touch the unicorn’s horn</button>
+                <button data-target="arse">Rune touches the unicorsn arse for some reason?</button>
+            </div>
+        </div>
+
+        <div class="scene, hidden" id="horn" >
+
+            <img src="img/t.png" alt="some trees">
+            <img src="img/h2.png" alt="dead on a tree stump" />
+            <img src="img/t.png" alt="some trees"><br/>
+            Rune is found some time later by the authorities having impaled himself on a strange looking tree stump.
+
+        </div>
+
+        <div class="scene, hidden" id="arse" >
+
+            <img src="img/missing-poster.png" alt="Missing poster"><br/>
+            
+            Rune has gone missing, never to be seen again. <br/>Wonder what he wanted to touch the unicorn ass for?
+
+
+        </div>
+
+
+    </div>
+
+    <script src="game.js" ></script>
+
+</body>
+
+</html>
