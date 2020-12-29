@@ -103,7 +103,10 @@
         "date": "2021-03-09T23:00:00.000Z",
         "day": "Onsdag",
         "title": "Aplied motivation; Gamification ",
-        "icon": "motivation.png"
+        "description": "Se på faktiske eksempler av bruk av motivasjon og motivasjon.",
+        "icon": "motivation.png",
+        "type": "Lecture",
+        "post": "LAGE ENDA EN OPPGAVE OM MOTIVASJON / GAMIFICATION. KANSKJE ut i fra gitte rammer. eks gamifiser tema X"
     },
     {
         "week": 11,
@@ -154,7 +157,8 @@
         "title": "Digital Games continued",
         "description": "We continue working on tools and concept related to digital game creation. Lets also discuse the peculiars of hybrid games",
         "beskrivelse": "Vi fortsetter å jobe med verktøy og konsepter knyttet til digital spill utvikling. La oss også diskutere finurlighetene rundt hybride spill",
-        "type": "Lecture"
+        "type": "Lecture",
+        "icon": "digital.png"
     },
     {
         "week": 16,
