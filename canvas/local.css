@@ -1,0 +1,104 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  hr {
+    border-top: 1px dashed #737373;
+    border-bottom: 0;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+  }
+
+  .header {
+    width: 260px;
+    min-width: 260px;
+    max-width: 260px;
+  }
+
+  .content {
+    padding-right: 20px;
+  }
+
+  .scheduleItem {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 10px 20px 10px;
+    display: flex;
+    align-content: flex-start;
+    border-radius: 15px;
+  }
+
+  .week,
+  .date {
+    font-size: 0.8em;
+    margin: 0px 5px 0px 5px;
+  }
+
+  .icon {
+    display: flex;
+    justify-content: center;
+    width: 175px;
+    min-width: 175px;
+    max-width: 175px;
+    max-height: 128px;
+  }
+
+  #schedule {
+    max-width: 1200px;
+  }
+
+  .Social {
+    background-color: #FFF2B0;
+  }
+
+  .Lecture {
+    background-color: #9DC0C5;
+  }
+
+  .Deadline {
+    background-color: #C59D9D;
+  }
+
+  .Workshop {
+    background-color: #BA9DC5;
+  }
+
+  .pre,
+  .post {
+    margin-top: 10px;
+  }
+
+  .prepostImage {
+    width: 28px;
+    height: 28px;
+    float: none;
+  }
+
+  a {
+    color: #444444;
+  }
+
+
+  @media screen and (max-width: 600px) {
+    .header {
+      display: none;
+    }
+
+    .content {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+  }

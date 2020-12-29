@@ -6,73 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MM-406 E-learning and Games</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.30.1/date_fns.min.js"></script>
-
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
 
   <style>
-    body {
-      font-family: 'Open Sans', sans-serif;
-    }
-
-    hr {
-      border-top: 1px dashed #737373;
-      border-bottom: 0;
-      width: 100%;
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
-
-    .column {
-      display: flex;
-      flex-direction: column;
-      justify-content: start;
-    }
-
-    .row {
-      display: flex;
-      flex-direction: row;
-      justify-content: start;
-    }
-
-    .header {
-      width: 260px;
-      min-width: 260px;
-      max-width: 260px;
-    }
-
-    .content {
-      padding-right: 20px;
-    }
-
-    .scheduleItem {
-      margin-top: 10px;
-      margin-bottom: 10px;
-      padding: 10px 10px 20px 10px;
-      display: flex;
-      align-content: flex-start;
-      border-radius: 15px;
-    }
-
-    .week,
-    .date {
-      font-size: 0.8em;
-      margin: 0px 5px 0px 5px;
-    }
-
-    .icon {
-      display: flex;
-      justify-content: center;
-      width: 175px;
-      min-width: 175px;
-      max-width: 175px;
-      max-height: 128px;
-    }
-
-    #schedule {
-      max-width: 1200px;
+    .bg-green {
+      background-color: green;
     }
 
     .Social {
@@ -90,118 +32,96 @@
     .Workshop {
       background-color: #BA9DC5;
     }
-
-    .pre,
-    .post {
-      margin-top: 10px;
-    }
-
-    .prepostImage {
-      width: 28px;
-      height: 28px;
-      float: none;
-    }
-
-    a {
-      color: #444444;
-    }
-
-
-    @media screen and (max-width: 600px) {
-      .header {
-        display: none;
-      }
-
-      .content {
-        padding-right: 20px;
-        padding-left: 20px;
-      }
-    }
   </style>
+
 </head>
 
 <body>
-  <section id="schedule" class="column">
+  <main class="container">
 
-  </section>
+    <div class="d-flex align-items-center p-3 my-3 text-white bg-green rounded shadow-sm">
+      <div class="lh-1">
+        <h1 class="h6 mb-0 text-white lh-1">MM-406 Semesterplan</h1>
+        <small>2021 versjon</small>
+      </div>
+    </div>
+
+
+    <section id="schedule" class="column">
+
+    </section>
+
+  </main>
 
   <template id="scheduleItemTemplate">
-    <div class="scheduleItem">
-      <div class="header row">
-        <div class="column">
+
+    <div class="scheduleItem my-3 p-3 bg-white rounded shadow-sm">
+      <h6 class="title border-bottom pb-2 mb-0">TITEL</h6>
+      <div class="d-flex text-muted pt-3">
+        <div class="me-4 small">
           <div class="week"></div>
           <div class="date"></div>
+          <img class="icon flex-shrink-0 rounded" width="64" height="64" role="img" aria-label="Event type"
+            preserveAspectRatio="xMidYMid slice" focusable="false" src="img/liftoff.png">
         </div>
-        <div class="icon">
-          <img src="img/liftoff.png">
-        </div>
+        <p class="description pb-3 mb-0 small lh-sm">
+        </p>
       </div>
-      <div class="column content">
-        <h1 class="title"></h1>
-        <div class="description"></div>
-        <div class="pre">
+      <div class="clearfix">&nbsp;</div>
+      <div class="d-flex text-muted pt-3">
+        <div class="me-4" style="min-width:64px;">&nbsp;</div>
+        <div class="pre me-4">
         </div>
         <div class="post">
         </div>
-
       </div>
-      </section>
+
+    </div>
+
+
   </template>
 
-  <script>
-    dateFns.isToday(new Date())
-    //=> true
-  </script>
+
+
 
   <script>
     var schedule = null;
     var target = document.querySelector("#schedule");
-    var todayWeek  = dateFns.getISOWeek(Date());
     var currentItem = null;
 
     (async () => {
-      schedule = await Retrieve(`schedule.json?killCache=${Math.random()* Number.MAX_SAFE_INTEGER}`);
+      schedule = await Retrieve(`schedule.json?killCache=${Math.random() * Number.MAX_SAFE_INTEGER}`);
       schedule.forEach((item, index) => {
 
-        if(!currentItem){
-          currentItem = item;
-        } else{
-          let date = dateFns.parse(item.date)
-          let week = dateFns.getISOWeek(date);
-
-          console.log(`todays week ${todayWeek}, items ${date} week ${week} `)
-
-          if(week == todayWeek){
-            currentItem = item;
-          }
-        }
-
-        var template = document.querySelector('#scheduleItemTemplate')
-
+        var template = document.querySelector('#scheduleItemTemplate');
         var clone = document.importNode(template.content, true);
 
         clone.querySelector(".week").textContent = `Week ${item.week}`;
-        clone.querySelector(".date").innerHTML = item.date + `<br/>${item.day}`;
+
+        if (item.date != null && item.date != "") {
+          const date = new Date(item.date);
+          console.log(item.date)
+          clone.querySelector(".date").innerHTML = new Intl.DateTimeFormat('no').format(date) + `<br/>${item.day}`;
+        }
+
         if (item.page) {
           clone.querySelector(".title").innerHTML = `<a href="${item.page}" target="_PARENT">${item.title}</a>`;
         } else {
           clone.querySelector(".title").textContent = item.title;
         }
 
-
-        let description = item.questionsDescription;
-        description = "<img src='img/en.png' width='28' height='28' alt='English description'><br/>" + description.replace("[no]", "<hr/><img src='img/no.png' width='28' height='28' alt='Norsk besrkivelse'><br/>");
+        let description = item.description;
 
         clone.querySelector(".description").innerHTML = description;
         clone.querySelector(".scheduleItem").classList.add(item.type)
-        clone.querySelector(".icon > img").setAttribute("src", `img/${item.icon}`)
+        clone.querySelector(".icon").setAttribute("src", `img/${item.icon}`)
 
         if (item.pre) {
-          clone.querySelector(".pre").innerHTML = `<img src="img/before.png" class="prepostImage" ><br/> ${item.pre}`
+          clone.querySelector(".pre").innerHTML = `<img src="img/before.png" class="prepostImage flex-shrink-0 rounded" width="32" height="32" ><br/> ${item.pre}`
         }
 
         if (item.post) {
-          clone.querySelector(".post").innerHTML = `<img src="img/after.png" class="prepostImage" > <br/>${item.post}`
+          clone.querySelector(".post").innerHTML = `<img src="img/after.png" class="prepostImage flex-shrink-0 rounded" width="32" height="32" > <br/>${item.post}`
         }
 
         target.appendChild(clone);
