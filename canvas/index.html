@@ -110,18 +110,16 @@
           clone.querySelector(".title").textContent = item.title;
         }
 
-        let description = item.description;
-
-        clone.querySelector(".description").innerHTML = description;
+        clone.querySelector(".description").innerHTML = `<p>${item.sprsmlBeskrivelseNo}</p><p><strong>[EN]</strong><br/>${item.questionsDescriptionEn}</p>`;
         clone.querySelector(".scheduleItem").classList.add(item.type)
         clone.querySelector(".icon").setAttribute("src", `img/${item.icon}`)
 
         if (item.pre) {
-          clone.querySelector(".pre").innerHTML = `<img src="img/before.png" class="prepostImage flex-shrink-0 rounded" width="32" height="32" ><br/> ${item.pre}`
+          clone.querySelector(".pre").innerHTML = `<img src="img/before.png" class="prepostImage flex-shrink-0 rounded" width="16" height="16" ><br/> ${item.pre}`
         }
 
         if (item.post) {
-          clone.querySelector(".post").innerHTML = `<img src="img/after.png" class="prepostImage flex-shrink-0 rounded" width="32" height="32" > <br/>${item.post}`
+          clone.querySelector(".post").innerHTML = `<img src="img/after.png" class="prepostImage flex-shrink-0 rounded" width="16" height="16" > <br/>${item.post}`
         }
 
         target.appendChild(clone);
