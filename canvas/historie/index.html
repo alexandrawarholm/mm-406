@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            border: 0, none, transparent;
+            background-color: #D5D5D5;
+            outline: none;
+        }
+
+        button::-moz-focus-inner {
+            border: none;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        button:active {
+            outline: none;
+        }
+
+        button {
+            display: block;
+            border: none;
+            padding: 0px;
+            height: 8em;
+            width: 8em;
+            outline: none;
+        }
+
+        button img {
+            width: 8em;
+            height: auto;
+            outline: none;
+        }
+
+        suit_key {
+            display: flex;
+            flex-direction: row;
+            padding: 0px;
+        }
+
+        .vContainer {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 32em;
+            margin: auto;
+        }
+
+        .pushDown {
+            margin-top: 10em;
+        }
+
+        .hContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .sText {
+            padding-top: 0.5em;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .cardStyle {
+            padding-bottom: 0.5em;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 2em;
+            width: inherit;
+            white-space: pre-line;
+        }
+    </style>
+
+</head>
+
+<body onload="setup();">
+
+    <div class="container pushDown">
+        <div class="cardStyle" id="card"></div>
+
+        <div class="hContainer">
+            <div class="vContainer">
+                <button id="pull_spade"><img src="img/spade.png" /></button>
+                <div class="sText">Lokasjon</div>
+            </div>
+            <div class="vContainer">
+                <button id="pull_heart"><img src="img/heart.png" /></button>
+                <div class="sText">Hendelse</div>
+            </div>
+            <div class="vContainer">
+                <button id="pull_diamond"><img src="img/diamond.png" /></button>
+                <div class="sText">Ting</div>
+            </div>
+            <div class="vContainer">
+                <button id="pull_club"><img src="img/club.png" /></button>
+                <div class="sText">Vesen</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        let orgCardValues = {
+            "locations": "Øy,Gammel ruin,By eller landsby,Skogholt eller Skog,Slott,Et trygt hus,Et helig sted,Slagmark,Ødemark,Hage,Kyst,Storby,Palas",
+            "beings": "En ny art,En ny/gammel fiende,En vandrende ånd,En ensom reisende,En tyran,En lærd person,En gammel ondskap,En ukjent nærhet,Et vilt dyr,Plantene,Et lekent vesen,En ny/gammel kjærlighet,En bandit leder",
+            "events": "Et tegn,Natur katastroge,Roter seg bort,Møter en spennende fremmed,Ekstrem vær,Krysser farlig tereng,Angrep i leiren,Får hjelp fra en fremmed,Så døden,Ville dyr,Har en åpenbarelse,En sykdom,Veien er blokert",
+            "things": "Kroppen til en tidligere besøkende,Gjenstand fra oldtiden,Ukjent gjenstand,En bok,En forbannelse eller trylle formular,En tapt skatt,En liten gjenstand,En mekanisk ting,Et kart,en liten boks,et våpen,En leke,En ny type mat"
+        }
+
+        let cardNames = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"]
+        let cards = [...Array(13).keys()]
+        let cardValues = {}
+        let spades = null
+        let hearts = null
+        let clubs = null
+        let diamonds = null
+
+        let h_index = 0
+        let s_index = 0
+        let c_index = 0
+        let d_index = 0
+
+        let display = null
+
+        function setup() {
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const art = urlParams.get('art');
+            const hart = document.getElementById("pull_heart");
+            const diamond = document.getElementById("pull_diamond");
+            const club = document.getElementById("pull_club")
+            const spade = document.getElementById("pull_spade");
+
+            hart.querySelector("img").setAttribute("src", "img/event.svg")
+            diamond.querySelector("img").setAttribute("src", "img/things.svg")
+            club.querySelector("img").setAttribute("src", "img/beings.svg")
+            spade.querySelector("img").setAttribute("src", "img/location.svg")
+
+
+            display = document.getElementById("card")
+            display.textContent = " "
+
+            Object.keys(orgCardValues).forEach(key => {
+                cardValues[key] = orgCardValues[key].split(",")
+            });
+
+            hart.addEventListener("click", () => {
+                [hearts, h_index] = draw(hearts, h_index, "Hendelse ", cardValues.events)
+            })
+
+            diamond.addEventListener("click", () => {
+                [diamonds, d_index] = draw(diamonds, d_index, "Ting", cardValues.things)
+            })
+
+            club.addEventListener("click", () => {
+                [clubs, c_index] = draw(clubs, c_index, "Vesen", cardValues.beings)
+            })
+
+            spade.addEventListener("click", () => {
+                [spades, s_index] = draw(spades, s_index, "Lokasjon", cardValues.locations)
+            })
+
+        }
+
+        function draw(suiteCards, index, cardSuitDesc, content) {
+            if (!suiteCards || index >= suiteCards.length) {
+                index = 0
+                console.log(suiteCards);
+                suiteCards = shuffle(Array.from(cards))
+            }
+            display.textContent = `${cardSuitDesc} ${cardNameFor(suiteCards[index])}: \r\n ${content[suiteCards[index]]}`
+            return [suiteCards, index++];
+        }
+
+        function cardNameFor(value) {
+            return cardNames[value]
+        }
+
+        function shuffle(array) {
+            var currentIndex = array.length, temporaryValue, randomIndex;
+
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+
+                // Pick a remaining element...
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+
+                // And swap it with the current element.
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+
+            return array;
+        }
+
+    </script>
+    <script src="js/lz-string.min.js"></script>
+</body>

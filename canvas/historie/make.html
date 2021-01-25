@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            border: 0, none, transparent;
+            background-color: #D5D5D5;
+            outline: none;
+        }
+
+        button::-moz-focus-inner {
+            border: none;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        button:active {
+            outline: none;
+        }
+
+        button {
+            display: block;
+            border: none;
+            padding: 0px;
+            height: 8em;
+            width: 8em;
+            outline: none;
+        }
+
+        button img {
+            width: 8em;
+            height: auto;
+            outline: none;
+        }
+
+        suit_key {
+            display: flex;
+            flex-direction: row;
+            padding: 0px;
+        }
+
+        .vContainer {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 32em;
+            margin: auto;
+        }
+
+        .pushDown {
+            margin-top: 10em;
+        }
+
+        .hContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .sText {
+            padding-top: 0.5em;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .cardStyle {
+            padding-bottom: 0.5em;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 2em;
+            width: inherit;
+            white-space: pre-line;
+        }
+    </style>
+
+</head>
+
+<body onload="setup();">
+
+    <div class="container pushDown">
+        <div class="cardStyle" id="card"></div>
+        <div class="hContainer">
+            <div class="vContainer">
+                <button id="pull_spade" ondrop="dropHandler(ev)"><img src="spade.png" /></button>
+                <div class="sText">Locations</div>
+            </div>
+            <div class="vContainer">
+                <button id="pull_heart"><img src="heart.png" /></button>
+                <div class="sText">Events</div>
+            </div>
+            <div class="vContainer">
+                <button id="pull_diamond"><img src="diamond.png" /></button>
+                <div class="sText">Things</div>
+            </div>
+            <div class="vContainer">
+                <button id="pull_club"><img src="club.png" /></button>
+                <div class="sText">Beings</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+
+        function dropHandler(ev) {
+            ev.preventdefault()
+            console.log("hmpf")
+        }
+
+        let orgCardValues = {
+            "locations": "Island,Ancient ruin,Town or Village,Wood or Forrest,Castle,Safe House,Place of worship,Battlefield,Barren landscape,Gardens,Coastline,City,Palace",
+            "beings": "A new species,A new / old foe,A wandering spirit,A lone traveller,A tyrant king,A scholar,An ancient evil,An unknown presence,A beast,The plants,A playful creature,A new/ old love,A bandit leader",
+            "events": "A sign,Natural disaster,Lost on way,Met an interesting stranger,Extreme weather,Cross dangerous terrain,Attacked at camp,Taken in by strangers,Saw Death,Wild animals,A vision,An illness,Path blocked",
+            "things": "The remains of a past visitor,Ancient artefact,Unknown object,A book,A curse or spell,A lost treasure,A trinket,A mechanical contraption,A map,A small box,A weapon,A toy,A new food"
+        }
+
+        let cardNames = ["ACE", "2", "3", "4", "5", "6", "7", "8", "9", "10", "JACK", "QUEEN", "KING"]
+        let cards = [...Array(13).keys()]
+        let cardValues = {}
+        let spades = null
+        let hearts = null
+        let clubs = null
+        let diamonds = null
+
+        let h_index = 0
+        let s_index = 0
+        let c_index = 0
+        let d_index = 0
+
+        let display = null
+
+        function setup() {
+            display = document.getElementById("card")
+            display.textContent = " "
+
+            Object.keys(orgCardValues).forEach(key => {
+                cardValues[key] = orgCardValues[key].split(",")
+            });
+
+            document.getElementById("pull_heart").addEventListener("click", () => {
+                [hearts, h_index] = draw(hearts, h_index, "OF HEARTS", cardValues.events)
+            })
+
+            document.getElementById("pull_diamond").addEventListener("click", () => {
+                [diamonds, d_index] = draw(diamonds, d_index, "OF DIAMONDS", cardValues.things)
+            })
+
+            document.getElementById("pull_club").addEventListener("click", () => {
+                [clubs, c_index] = draw(clubs, c_index, "OF CLUBS", cardValues.beings)
+            })
+
+            document.getElementById("pull_spade").addEventListener("click", () => {
+                [spades, s_index] = draw(spades, s_index, "OF SPADES", cardValues.locations)
+            })
+
+        }
+
+        function draw(suiteCards, index, cardSuitDesc, content) {
+            if (!suiteCards || index >= suiteCards.length) {
+                index = 0
+                console.log(suiteCards);
+                suiteCards = shuffle(Array.from(cards))
+            }
+            display.textContent = `${cardNameFor(suiteCards[index])} ${cardSuitDesc}.\r\n ${content[suiteCards[index]]}`
+            return [suiteCards, index++];
+        }
+
+        function cardNameFor(value) {
+            return cardNames[value]
+        }
+
+        function shuffle(array) {
+            var currentIndex = array.length, temporaryValue, randomIndex;
+
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+
+                // Pick a remaining element...
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+
+                // And swap it with the current element.
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+
+            return array;
+        }
+
+    </script>
+</body>
