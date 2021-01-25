@@ -172,6 +172,7 @@
 
             spade.addEventListener("click", () => {
                 [spades, s_index] = draw(spades, s_index, "Lokasjon", cardValues.locations)
+
             })
 
         }
@@ -179,11 +180,11 @@
         function draw(suiteCards, index, cardSuitDesc, content) {
             if (!suiteCards || index >= suiteCards.length) {
                 index = 0
-                console.log(suiteCards);
                 suiteCards = shuffle(Array.from(cards))
             }
             display.textContent = `${cardSuitDesc} ${cardNameFor(suiteCards[index])}: \r\n ${content[suiteCards[index]]}`
-            return [suiteCards, index++];
+            index++;
+            return [suiteCards, index];
         }
 
         function cardNameFor(value) {
