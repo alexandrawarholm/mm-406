@@ -34,6 +34,7 @@
         "sprsmlBeskrivelseNo": "Hva kan moderne pedagogikk og spilldesign tilby hverandre? Hvordan kan de utfylle hverandre? Hva er likheter og ulikheter mellom pedagogikk, spill og motivasjon? Hva er en læringsteori? Hva kan læringsteorier forklare oss om spill og spillifisering? Kan vi se på historisk og nåværende utvikling av læringsteorier og trekke noen konklusjoner rundt viktigheten av spill? Vil bruk av spill som verktøy endre didaktisk tilnærming?",
         "type": "Lecture",
         "pre": "Utdypende om grunnleggende pedagogikk: <a href='https://courses.lumenlearning.com/educationalpsychology/' target=\"_blank\">educational psychology</a><br/>Dere bør også se på følgende rapport fra side 38 og utover: <a target=\"_blank\" href='https://www.forskningsradet.no/siteassets/publikasjoner/1254035532334.pdf'>Rapport</a>",
+        "post": "Assignment: <a href=\"https://uia.instructure.com/courses/8509/assignments/28581\" target=\"_PARENT\">Ped assignment</a>",
         "icon": "ped.png",
         "page": "https://uia.instructure.com/courses/8509/pages/pedagogy"
     },
@@ -45,74 +46,84 @@
         "questionsDescriptionEn": "Games vs Serious vs educational, what are the differences? Does it matter beyond a rhetoric / marketing view? When the focus is not entertainment does the process differ? Are serious games and simulators the same thing? There are lots of questions we could ask ourselves on this topic, together we will figure out what this is all about. \n",
         "sprsmlBeskrivelseNo": "Spill vs Seriøse spill vs spill med utdanningsfokus, hva er forskjellene? Finnes disse forskjellene utenom det merkedsmessige og retoriske? Når fokus skifter bort fra underholdning, er da designprosessene ulike.Er seriøse spill og simulatorer det samme? Det er et utall spørsmål vi kan spørre oss selv relatert til dette emnet, sammen finner vi ut hva dette handler om.",
         "type": "Lecture",
-        "post": "Listen to <br><a href=\"http://ludology.libsyn.com/biography-of-a-board-game-2145-mafiawerewolf\" target=\"_PARENT\">Mafia a serious game?</a>",
+        "post": "Listen to <br><a href=\"http://ludology.libsyn.com/biography-of-a-board-game-2145-mafiawerewolf\" target=\"_PARENT\">Mafia a serious game?</a> <br/>Assignment: <a href=\"https://uia.instructure.com/courses/8509/assignments/285838\" target=\"_PARENT\">Serious games assignment</a>",
         "icon": "serious.png",
         "page": "https://uia.instructure.com/courses/8509/pages/serious-and-educational-games"
     },
     {
         "week": 6,
-        "date": "2021-02-02T23:00:00.000Z",
+        "date": "2021-02-09T23:00:00.000Z",
         "day": "Onsdag",
         "title": "Game design intro",
         "questionsDescriptionEn": "What makes a game? What is the focus of game design? What is theme? Where does one begin? Are there tools and processes that I can use? We will be digging into these and similar questions.",
         "sprsmlBeskrivelseNo": "Hva definerer et spill? Hvilket fokus har spilldesign? Hva er et tema? Hvor skal en begynne? Finnes det gode verktøy og prosesser jeg kan benytte meg av? Vi vil se på disse og lignende spørsmål i denne økten.",
         "type": "Lecture",
         "pre": "Read: Unit 1 in Rules of Play",
-        "post": "Assignment: <br> <a href=\"https://uia.instructure.com/courses/8509/assignments/18493\" target=\"_PARENT\">Game desing part II</a>",
+        "post": "Assignment: <br> <a href=\"https://uia.instructure.com/courses/8509/assignments/28576\" target=\"_PARENT\">Game desing part II</a>",
         "icon": "dice.png",
         "page": "https://uia.instructure.com/courses/8509/pages/game-design-intro"
     },
     {
+        "week": "TBA",
+        "day": "TBA",
+        "title": "Diversify experience game lab I",
+        "questionsDescriptionEn": "We play a series of different styles of analog games",
+        "sprsmlBeskrivelseNo": "Vi spiller en rekke ulike brettspill .",
+        "type": "Social",
+        "icon": "play.png"
+    },
+    {
         "week": 7,
-        "date": "2021-02-09T23:00:00.000Z",
+        "date": "2021-02-16T23:00:00.000Z",
         "day": "Onsdag",
         "title": "Game desing continued",
         "questionsDescriptionEn": "What are mechanics, components and rules? Are there different types of rules? How do we discover and use mechanics? Are there tools? This is the next step in our process of discussing game design, we will now be adding some \"meat\" to our games.\n",
         "sprsmlBeskrivelseNo": "Hva ligger i begrepet mekanismer, komponenter og regler? Finnes det ulike typer regler? Hvordan kan vi identifisere og benytte oss av ulike spillmekanismer? Finnes det gode verktøy? Dette er neste steg i diskusjonen relatert til spilldesign, vi begynner nå å legge litt \"kjøtt på beinet\" til det \"skjelettet\" vi har dannet oss.",
         "type": "Lecture",
         "pre": "Read: Unit 2 i Rules of Play",
-        "post": "Listen to <br><a href=\"http://www.boardgamedesignlab.com/designing-an-awesome-print-n-play-with-martin-gonzalvez/\" target=\"_PARENT\">Awsome print and play</a> <br/> Assignment:<br/> <a href=\"https://uia.instructure.com/courses/8509/assignments/18494\" target=\"_PARENT\">Game desing part III</a>",
+        "post": "Listen to <br><a href=\"http://www.boardgamedesignlab.com/designing-an-awesome-print-n-play-with-martin-gonzalvez/\" target=\"_PARENT\">Awsome print and play</a> <br/> Assignment:<br/> <a href=\"https://uia.instructure.com/courses/8509/assignments/28577\" target=\"_PARENT\">Game desing part III</a>",
         "icon": "dice.png",
         "page": "https://uia.instructure.com/courses/8509/pages/game-desing-continued"
     },
     {
         "week": 8,
-        "date": "2021-02-16T23:00:00.000Z",
+        "date": "2021-02-23T23:00:00.000Z",
         "day": "Onsdag",
         "title": "Game testing",
         "questionsDescriptionEn": "How do we test a game? What are the tools? What are we looking for? There is a lot of forethought that goes into the successful testing of a game. During this workshop we will try to familiarize you with a good processes and tools.\n",
         "sprsmlBeskrivelseNo": "Hvordan tester vi et spill?`HVilke verktøy benytter vi oss av? Det ligger mye forarbeid i suksessfull spilltesting. I denne arbeidsøkten vil vi fokusere på gode prosesser og gode verktøy.",
         "type": "Workshop",
         "pre": "You must have created a prototype and bring it to this workshop.[no]Du må ha laget en prototyp og ta denne med deg til arbeidsøkten.",
-        "post": "Assignment: https://uia.instructure.com/courses/8509/assignments/18578",
+        "post": "Assignment: <a href=\"https://uia.instructure.com/courses/8509/assignments/28578\" target=\"_PARENT\">Game testing</a>",
         "icon": "test.png",
         "page": "https://uia.instructure.com/courses/8509/pages/game-testing"
     },
     {
         "week": 9,
-        "date": "2021-02-23T23:00:00.000Z",
+        "date": "2021-03-02T23:00:00.000Z",
         "day": "Onsdag",
         "title": "Motivation",
         "questionsDescriptionEn": "Why does motivation matter to us as educators and game designers? What is motivation?\nAre there different types of motivation? Can vi create motivation? Are there things\nthat for instance games and other media can teach us about motivation? Do we\nhave differing motivations for play? Why is gamification a motivational theory?\n",
         "sprsmlBeskrivelseNo": "Hvorfor er motivasjon viktig for oss som undervisere og spilldesignere? Hva er egentlig motivasjon? Finnes det ulike typer motivasjon? Kan vi \"skape\" motivasjon selv? Finnes det ting vi kan lære om motivasjon gjennom for eksempel spill eller andre medier?",
         "type": "Lecture",
-        "pre": "Lese Daniel Pink \"Drive\" og se hans TED foredrag: https://www.youtube.com/watch?v=rrkrvAUbU9Y ",
-        "post": "<a href=\"https://uia.instructure.com/courses/8509/assignments/18950\" target=\"_PARENT\">Gamification assignment</a>",
+        "pre": "Lese Daniel Pink \"Drive\" og se hans <a href=\"https://www.youtube.com/watch?v=rrkrvAUbU9Y\">TED foredrag</a> ",
+        "post": "<a href=\"https://uia.instructure.com/courses/8509/assignments/30175\" target=\"_PARENT\">Motivation assignment</a>",
         "icon": "motivation.png",
         "page": "https://uia.instructure.com/courses/8509/pages/motivation"
     },
     {
         "week": 10,
-        "date": "2021-03-02T23:00:00.000Z",
+        "date": "2021-03-09T23:00:00.000Z",
         "day": "Onsdag",
         "title": "Aplied motivation; Gamification ",
         "questionsDescriptionEn": "What is gamification and how can we apply ",
         "sprsmlBeskrivelseNo": "Hva er gamification og hvordan kan vi bruke det?",
+        "post": "<a href=\"https://uia.instructure.com/courses/8509/assignments/28579\" target=\"_PARENT\">Gamification assignment</a>",
         "type": "Lecture",
         "icon": "motivation.png"
     },
     {
-        "week": 11,
+        "week": "TBA",
         "day": "TBA",
         "title": "Diversify experience game lab II",
         "questionsDescriptionEn": "We play a series of different styles of digital games",
@@ -121,18 +132,8 @@
         "icon": "play.png"
     },
     {
-        "week": 12,
+        "week": 11,
         "date": "2021-03-16T23:00:00.000Z",
-        "day": "Hele uken",
-        "title": "PÅSKE",
-        "questionsDescriptionEn": "Easter brake, work on your games",
-        "sprsmlBeskrivelseNo": "Påske pause, jobb med spillene deres",
-        "type": "Self-directed",
-        "icon": "egg.png"
-    },
-    {
-        "week": 13,
-        "date": "2021-03-23T23:00:00.000Z",
         "day": "Onsdag",
         "title": "Digital Games",
         "questionsDescriptionEn": "What separates digital and analogue games? Are digital games better than analog games? Are there differences to the design process? Are there tools that we can use? How does one start designing a digital game?\n",
@@ -142,17 +143,37 @@
         "page": "https://uia.instructure.com/courses/8509/pages/digital-games"
     },
     {
-        "week": 14,
-        "date": "2021-03-30T22:00:00.000Z",
+        "week": 12,
+        "date": "2021-03-23T22:00:00.000Z",
         "day": "Onsdag",
         "title": "Digital Games continued",
         "questionsDescriptionEn": "We continue working on tools and concept related to digital game creation. Lets also discuse the peculiars of hybrid games",
         "sprsmlBeskrivelseNo": "Vi fortsetter å jobe med verktøy og konsepter knyttet til digital spill utvikling. La oss også diskutere finurlighetene rundt hybride spill",
-        "type": "Lecture"
+        "type": "Lecture",
+        "icon": "digital.png"
+    },
+    {
+        "week": 13,
+        "day": "Hele uken",
+        "title": "PÅSKE",
+        "questionsDescriptionEn": "Easter brake, work on your games",
+        "sprsmlBeskrivelseNo": "Påske pause, jobb med spillene deres",
+        "type": "Self-directed",
+        "icon": "egg.png"
+    },
+    {
+        "week": 14,
+        "date": "2021-04-06T22:00:00.000Z",
+        "day": "Onsdag",
+        "title": "Getting ready to jam",
+        "questionsDescriptionEn": "We get ready to jam.",
+        "sprsmlBeskrivelseNo": "Vi i felleskap gjør oss klar for en uke med game jam.",
+        "type": "Workshop",
+        "icon": "jam.png"
     },
     {
         "week": 15,
-        "date": "2021-04-06T22:00:00.000Z",
+        "date": "2021-04-13T22:00:00.000Z",
         "day": "Hele uken",
         "title": "Game Jam",
         "questionsDescriptionEn": "We make a digital game from start to finish",
@@ -164,15 +185,17 @@
     },
     {
         "week": 16,
-        "date": "2021-04-13T22:00:00.000Z",
+        "date": "2021-04-20T22:00:00.000Z",
         "title": "Pedagogy 2",
+        "day": "Onsdag",
         "questionsDescriptionEn": "We work with case studies.",
         "sprsmlBeskrivelseNo": "Vi jobber med eksempler \"Cases\"",
-        "type": "Lecture"
+        "type": "Lecture",
+        "icon": "ped.png"
     },
     {
         "week": 17,
-        "date": "2021-04-20T22:00:00.000Z",
+        "date": "2021-04-27T22:00:00.000Z",
         "day": "Onsdag",
         "title": "Semester Reflection, Introspection. Writing seminar\n",
         "questionsDescriptionEn": "What have we learnt? Were there any surprises? What were the highlights and what were the major problems? Has the semester contributed something to you personally? What is good writing? What is an article? What are the important elements when it comes to article writing? Are there tools that can help? What in the world is academic literature and how do we read it?",
@@ -183,7 +206,7 @@
     },
     {
         "week": 18,
-        "date": "2021-04-27T22:00:00.000Z",
+        "date": "2021-05-04T22:00:00.000Z",
         "day": "Onsdag",
         "title": "Final deadline for obligatory assignments\n",
         "questionsDescriptionEn": "If you submit at this point you will get no feedback and an automatic grade reduction.\n",
