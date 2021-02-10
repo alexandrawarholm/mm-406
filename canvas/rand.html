@@ -19,16 +19,16 @@
 
     <div class="container">
 
-        
+
         <div class="col s12 m6">
             <h1>The fun generator</h1>
             <label for="seed">First random word</label><input type="text" id="seed">
             <label for="seed">Second random word</label><input type="text" id="delta">
-            <label for="seed">Difficulty</label><input id="size" type="range" min="1" max="3">
+            <label for="seed">Difficulty</label><input id="size" type="range" min="2" max="3">
             <button id="generate">Action</button>
 
         </div>
-    
+
         <div id="output" class="col s12 m6">
 
         </div>
@@ -54,7 +54,7 @@
             let mutator = 0;
 
             let collection = constraints.slice(0);
-            let res = sequence(seed + mutator, delta, collection.slice(0)).slice(0,slice);
+            let res = sequence(seed + mutator, delta, collection.slice(0)).slice(0, slice);
 
             let output = "<h4>Your game should</h4><p>"
             res.forEach(item => {
@@ -65,7 +65,7 @@
             document.querySelector("#output").innerHTML = output
         });
 
-       
+
 
         (async () => {
             constraints = await Retrieve(`constraints.json?rnd=${Date.now()}`);
@@ -74,8 +74,8 @@
         })();
 
 
-        function rndEmoji(){
-            if(!emojisForUse || emojisForUse.length === 0){
+        function rndEmoji() {
+            if (!emojisForUse || emojisForUse.length === 0) {
                 emojisForUse = emojis.slice(0);
                 emojisForUse = shuffle(emojisForUse);
             }
