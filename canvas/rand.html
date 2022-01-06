@@ -22,9 +22,9 @@
 
         <div class="col s12 m6">
             <h1>The fun generator</h1>
-            <label for="seed">First random word</label><input type="text" id="seed">
-            <label for="seed">Second random word</label><input type="text" id="delta">
-            <label for="seed">Difficulty</label><input id="size" type="range" min="2" max="3">
+            <label for="seed">First name</label><input type="text" id="seed">
+            <label for="seed">Family name</label><input type="text" id="delta">
+            <!--<label for="seed">Difficulty</label><input id="size" type="range" min="2" max="3">-->
             <button id="generate">Action</button>
 
         </div>
@@ -50,7 +50,7 @@
 
             let seed = sumString(document.querySelector("#seed").value);
             let delta = sumString(document.querySelector("#delta").value);
-            let slice = document.querySelector("#size").value
+            let slice = 4;//document.querySelector("#size").value
             let mutator = 0;
 
             let collection = constraints.slice(0);
